@@ -1,0 +1,16 @@
+apiVersion: v1
+description: Megatron (beware optimus prime)
+name: megatron
+version: 0.0.1
+appVersion: 3.0
+icon: https://vignette.wikia.nocookie.net/transformers-forged-to-fight/images/4/4b/Megatron_G1_Icon.png/revision/latest?cb=20180111144428
+keywords:
+- systems
+- workable
+- demo
+home: https://github.com/chasiotis/megatron/blob/master/README.md
+sources:
+- https://github.com/chasiotis/megatron.git
+maintainers:
+- name: Chasiotis Nikos
+  email: hasiotis@workable.com

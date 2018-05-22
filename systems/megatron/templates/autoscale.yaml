@@ -1,0 +1,17 @@
+---
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: {{ template "fullname" . }}-autoscaling
+  labels:
+    chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  scaleTargetRef:
+    apiVersion: extensions/v1beta1
+    kind: Deployment
+    name: {{ template "fullname" . }}
+  minReplicas: {{ .Values.scale.minReplicas }}
+  maxReplicas: {{ .Values.scale.maxReplicas }}
+  targetCPUUtilizationPercentage: {{ .Values.scale.targetCPUUtilizationPercentage }}
