@@ -1,3 +1,4 @@
+imgtag: null
 image:
   repository: "gcr.io/workable-k8s/megatron"
   tag: null
