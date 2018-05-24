@@ -23,7 +23,7 @@ spec:
           emptyDir: {}
       containers:
         - name: unoconv
-          image: {{ .Values.image.repository }}:{{ required "A valid imgtag is required" .Values.imgtag }}
+          image: {{ .Values.image.repository }}:{{ required "A valid image.tag is required" .Values.image.tag }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           command: ["/usr/bin/unoconv"]
           args: ["--listener", "--server=127.0.0.1", "--port=2002", "--verbose"]
@@ -33,7 +33,7 @@ spec:
           resources:
 {{ toYaml .Values.resources | indent 12 }}
         - name: worker
-          image: {{ .Values.image.repository }}:{{ required "A valid imgtag is required" .Values.imgtag }}
+          image: {{ .Values.image.repository }}:{{ required "A valid image.tag is required" .Values.image.tag }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           command: ["/usr/local/bin/gunicorn"]
           args: ["-w", "1", "-b", "0.0.0.0:5000", "--threads", "5", "app:app"]
